@@ -31,7 +31,7 @@ class HomeController extends Controller
         $token = Str::random(60);
         $request->user()->forceFill([
     'api_token'=> hash('sha256', $token),
-]);
+])-> save();
 return view('home',compact('token'));
     }
 }
